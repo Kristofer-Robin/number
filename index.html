@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Example</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="apps.js" defer></script>
+    <script src="chart.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="dropdown-submenu filter--number">
+    <div class="popover bs-popover-right p-2">
+        <div class="arrow"></div>
+        <div class="popover-content">
+            <form method="get" action="">
+                <div class="flex-wrap">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" style="border-top-right-radius: 0; border-bottom-right-radius: 0;"> = </button>
+                            <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                                <li><a class="dropdown-item operator-option" href="#" data-bs-filter-value="equal_name">=</a></li>
+                                <li><a class="dropdown-item operator-option" href="#" data-bs-filter-value="not_equal_name">!=</a></li>
+                            </ul>
+                        </div>
+                        <input id="filter-input" name="equal_name" class="form-control" type="number" value="" placeholder="Enter Number" aria-describedby="Equal value" />
+                    </div>
+                    <div class="flex-wrap">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <button id="gt-dropdown" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"  aria-expanded="false" style="border-top-right-radius: 0; border-bottom-right-radius: 0;"> > </button>
+                                <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                                    <li><a class="dropdown-item operator-option-gtlt" href="#" data-bs-filter-value="gt_name" data-target="#gt-dropdown"> > </a></li>
+                                    <li><a class="dropdown-item operator-option-gtlt" href="#" data-bs-filter-value="gte_name" data-target="#gt-dropdown"> &gt;= </a></li>
+                                </ul>
+                            </div>
+                            <input id="filter-input-gt" name="gt_name" class="form-control" type="number" value="" placeholder="Enter Number" aria-describedby="Greater than value" />
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <button id="lt-dropdown" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"  aria-expanded="false" style="border-top-right-radius: 0; border-bottom-right-radius: 0;"> < </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item operator-option-gtlt" href="#" data-bs-filter-value="lt_name" data-target="#lt-dropdown"> < </a></li>
+                                    <li><a class="dropdown-item operator-option-gtlt" href="#" data-bs-filter-value="lte_name" data-target="#lt-dropdown"> &lt;= </a></li>
+                                </ul>
+                            </div>
+                            <input id="filter-input-lt" name="lt_name" class="form-control" type="number" value="" placeholder="Enter Number" aria-describedby="Less than value" />
+                        </div>
+                    </div>
+                    <div class="filter__submit-buttons">
+                        <button type="submit" class="btn btn-success btn-sm mr-2 mb-md-n3" aria-label="Apply filter" onclick="applyFilters();">Apply</button>
+                        <a class="btn btn-warning btn-sm mr-2 mb-md-n3" href="#" aria-label="Clean filter">Clean</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <canvas id="chart"></canvas>
+</div>
+</body>
+</html>
